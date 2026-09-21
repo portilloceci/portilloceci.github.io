@@ -1,1 +1,597 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>Blog Template · Bootstrap v5.3</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/blog/"
+    />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />    <meta name="theme-color" content="#712cf9" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="blog.css" rel="stylesheet" />
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+        ></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path
+          d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"
+        ></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+        ></path>
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
+        ></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div
+      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
+    >
+      <button
+        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+        id="bd-theme"
+        type="button"
+        aria-expanded="false"
+        data-bs-toggle="dropdown"
+        aria-label="Toggle theme (auto)"
+      >
+        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
+          <use href="#circle-half"></use>
+        </svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end shadow"
+        aria-labelledby="bd-theme-text"
+      >
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="light"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#sun-fill"></use>
+            </svg>
+            Light
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center"
+            data-bs-theme-value="dark"
+            aria-pressed="false"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#moon-stars-fill"></use>
+            </svg>
+            Dark
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="dropdown-item d-flex align-items-center active"
+            data-bs-theme-value="auto"
+            aria-pressed="true"
+          >
+            <svg class="bi me-2 opacity-50" aria-hidden="true">
+              <use href="#circle-half"></use>
+            </svg>
+            Auto
+            <svg class="bi ms-auto d-none" aria-hidden="true">
+              <use href="#check2"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol
+        id="aperture"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <path
+          d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"
+        ></path>
+      </symbol>
+      <symbol id="cart" viewBox="0 0 16 16">
+        <path
+          d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        ></path>
+      </symbol>
+      <symbol id="chevron-right" viewBox="0 0 16 16">
+        <path
+          fill-rule="evenodd"
+          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+        ></path>
+      </symbol>
+    </svg>
+    <div class="container">
+      <header class="border-bottom lh-1 py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-4 pt-1">
+          </div>
+          <div class="col-4 text-center">
+            <a
+              class="blog-header-logo text-body-emphasis text-decoration-none"
+              href="#"
+              >My Civic Technology Reading Journal</a
+            >
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="link-secondary" href="#" aria-label="Search">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="mx-3"
+                role="img"
+                viewBox="0 0 24 24"
+              >
+            
+              </svg>
+            </a>
+          </div>
+        </div>
+      </header>
+      <div class="nav-scroller py-1 mb-3 border-bottom">
+        <nav class="nav nav-underline justify-content-between">
+          <a class="nav-item nav-link link-body-emphasis" href="index.html"
+            >Home</a
+          >
+          <a class="nav-item nav-link link-body-emphasis active" href="weekly-readings.html">Weekly Readings</a>
+          <a class="nav-item nav-link link-body-emphasis" href="about.html"
+            >About</a
+          >
+        </nav>
+      </div>
+    </div>
+    <main class="container">
+      <div class="row g-5">
+        <div class="col-md-8">
+          <article class="blog-post">
+            <h2 class="display-5 link-body-emphasis mb-1">From Parcel to Buildable Envelope</h2>
+            <p class="blog-post-meta">
+              September 21, 2026 by <a href="#">Ceci Portillo</a>
+            </p>
+            <p>
+              <b>My assigned parcel:</b> 34 Favre St, Boston, MA 02126
+
+            </p>
+            <h2>Parcel Information</h2>
+            <table class="table">
+  <caption>Source: Boston Zoning Viewer; Assessor parcel record</caption>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+      <th>Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Address</td>
+      <td>34 Favre St, Boston, MA 02126</td>
+      <td>Boston Zoning Viewer</td>
+    </tr>
+    <tr>
+      <td>Parcel ID</td>
+      <td>1802248000</td>
+      <td>Boston Zoning Viewer</td>
+    </tr>
+    <tr>
+      <td>Lot area</td>
+      <td>8,426 sq ft</td>
+      <td>Assessor parcel record</td>
+    </tr>
+    <tr>
+      <td>Lot dimensions</td>
+      <td>&asymp; 70 ft &times; 121.24 ft &mdash; schematic rectangle</td>
+      <td>Derived; see note</td>
+    </tr>
+    <tr>
+      <td>Zoning district</td>
+      <td>Greater Mattapan Neighborhood District</td>
+      <td>Boston Zoning Viewer</td>
+    </tr>
+    <tr>
+      <td>Zoning subdistrict</td>
+      <td>Residential-1 (R1)</td>
+      <td>Boston Zoning Viewer</td>
+    </tr>
+    <tr>
+      <td>Applicable article</td>
+      <td>Article 60</td>
+      <td>Boston Zoning Viewer</td>
+    </tr>
+    <tr>
+      <td>Overlays</td>
+      <td>None</td>
+      <td>Boston Zoning Viewer</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Regulatory rules — base condition (no ADU)</h2>
+<table class="table">
+  <caption>
+    Boston Zoning Code, Art. 60, &sect; 60-37, Table D &mdash;
+    &ldquo;Dimensional Regulations for Lots in Residential-1 (R1) Subdistricts
+    (for the Primary Structure, where Up to 2 Dwelling Units are Allowed),&rdquo;
+    row &ldquo;&gt;5,000 sf&rdquo; (Text Amd. No. 467, &sect; 3, 2-7-2024)
+  </caption>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Requirement</th>
+      <th>Exact source</th>
+      <th>Interpretation</th>
+      <th>Condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Subdistrict</td>
+      <td>R1</td>
+      <td>Zoning Viewer; Art. 60</td>
+      <td>&mdash;</td>
+      <td>&mdash;</td>
+    </tr>
+    <tr>
+      <td>Minimum lot frontage</td>
+      <td>20 ft</td>
+      <td>Table D, R1 Primary, &gt;5,000 sf</td>
+      <td>&mdash;</td>
+      <td>Applies to lot, not building</td>
+    </tr>
+    <tr>
+      <td>Front yard</td>
+      <td>10 ft</td>
+      <td>Table D, R1 Primary, &gt;5,000 sf</td>
+      <td>Measured from front lot line</td>
+      <td>&rarr; 5 ft under ADU condition</td>
+    </tr>
+    <tr>
+      <td>Side yard</td>
+      <td>14 ft cumulative, 3 ft minimum each</td>
+      <td>Table D, R1 Primary, &gt;5,000 sf</td>
+      <td>Sum is fixed; distribution is not</td>
+      <td>&rarr; 3 ft each under ADU condition</td>
+    </tr>
+    <tr>
+      <td>Rear yard</td>
+      <td>20 ft</td>
+      <td>Table D, R1 Primary, &gt;5,000 sf</td>
+      <td>E&mdash;</td>
+      <td>Detached ADU may occupy it (fn. **)</td>
+    </tr>
+    <tr>
+      <td>Maximum height</td>
+      <td>35 ft</td>
+      <td>Table D, R1 Primary, &gt;5,000 sf</td>
+      <td>&mdash;</td>
+      <td>&rarr; 40 ft under ADU condition</td>
+    </tr>
+    <tr>
+      <td>Maximum stories</td>
+      <td>3</td>
+      <td>Table D, R1 Primary, &gt;5,000 sf</td>
+      <td>&mdash;</td>
+      <td>&rarr; &ldquo;3%&rdquo; [sic] under ADU condition</td>
+    </tr>
+    <tr>
+      <td>Maximum building lot coverage</td>
+      <td>30%</td>
+      <td>Table D, R1 Primary, &gt;5,000 sf</td>
+      <td>&mdash;</td>
+      <td>Lot &ge; 5,000 sq ft; 40% if under</td>
+    </tr>
+    <tr>
+      <td>Minimum permeable area</td>
+      <td>25%</td>
+      <td>Table D, R1 Primary, &gt;5,000 sf</td>
+      <td>&mdash;</td>
+      <td>&rarr; 15% under ADU condition</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Regulatory rules — ADU condition</h2>
+<table class="table">
+  <caption>
+    Art. 60, &sect; 60-37, Table D &mdash; &ldquo;Dimensional Regulations for Lots in
+    Residential-1 (R1) Subdistricts with Accessory Dwelling Units,&rdquo; row
+    &ldquo;&gt;5,000 sf.&rdquo; Applies to the lot, i.e. the primary structure;
+    ADU structures are separately capped by Article 2.
+  </caption>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Requirement</th>
+      <th>Exact source</th>
+      <th>Interpretation</th>
+      <th>Condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Front yard</td>
+      <td>5 ft</td>
+      <td>Table D, R1 w/ ADUs, &gt;5,000 sf</td>
+      <td>Relaxation only makes sense for a street-facing structure</td>
+      <td>Only if an ADU is proposed</td>
+    </tr>
+    <tr>
+      <td>Side yard</td>
+      <td>3 ft each</td>
+      <td>Table D, R1 w/ ADUs, &gt;5,000 sf</td>
+      <td>Cumulative 14 ft requirement drops away</td>
+      <td>Only if an ADU is proposed</td>
+    </tr>
+    <tr>
+      <td>Rear yard</td>
+      <td>20 ft</td>
+      <td>Table D, R1 w/ ADUs, &gt;5,000 sf</td>
+      <td>Unchanged from base condition</td>
+      <td>Detached ADU may be built within it (fn. **)</td>
+    </tr>
+    <tr>
+      <td>Maximum height</td>
+      <td>40 ft</td>
+      <td>Table D, R1 w/ ADUs, &gt;5,000 sf</td>
+      <td>Applies to the primary structure, not the ADU</td>
+      <td>Only if an ADU is proposed</td>
+    </tr>
+    <tr>
+      <td>Maximum stories</td>
+      <td>&ldquo;3%&rdquo; [sic]</td>
+      <td>Table D, R1 w/ ADUs, &gt;5,000 sf</td>
+      <td>Codified typo; BPDA fact sheet states 3.5 stories</td>
+      <td>Unresolved &mdash; see uncertainty note</td>
+    </tr>
+    <tr>
+      <td>Maximum building lot coverage</td>
+      <td>50%</td>
+      <td>Table D, R1 w/ ADUs, &gt;5,000 sf</td>
+      <td>Raises footprint cap to 4,213 sq ft</td>
+      <td>Lot &ge; 5,000 sq ft; 60% if under</td>
+    </tr>
+    <tr>
+      <td>Minimum permeable area</td>
+      <td>15%</td>
+      <td>Table D, R1 w/ ADUs, &gt;5,000 sf</td>
+      <td>Relaxed to offset the added coverage</td>
+      <td>Only if an ADU is proposed</td>
+    </tr>
+    <tr>
+      <td>Detached ADU</td>
+      <td>&le; 900 sq ft floor plate; &le; 1&frac12; stories</td>
+      <td>Art. 2, &ldquo;Accessory Dwelling Unit (Detached)&rdquo;</td>
+      <td>Or the primary structure&rsquo;s height, whichever is smaller</td>
+      <td>Max one per lot; &ge; 5 ft from any other structure</td>
+    </tr>
+    <tr>
+      <td>Non-detached ADU</td>
+      <td>&le; 75% of principal unit or 1,250 sq ft</td>
+      <td>Art. 2, &ldquo;Accessory Dwelling Unit (non-Detached)&rdquo;</td>
+      <td>Addition may not exceed primary structure height</td>
+      <td>Max one per lot</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Calculations</h2>
+<table class="table">
+  <caption>Lot area 8,426 sq ft (Assessor) governs all percentage controls</caption>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Calculation</th>
+      <th>What it tells us</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Rectangle reconciliation</td>
+      <td>70 &times; 121.24 = 8,487 sq ft; +61 sq ft (+0.7%)</td>
+      <td>Parcel is not a true rectangle; geometry is schematic</td>
+    </tr>
+    <tr>
+      <td>Setback-defined width</td>
+      <td>70 &minus; 14 = 56 ft</td>
+      <td>Width remaining after both side yards</td>
+    </tr>
+    <tr>
+      <td>Setback-defined depth</td>
+      <td>121.24 &minus; 10 &minus; 20 = 91.24 ft</td>
+      <td>Depth remaining after front and rear yards</td>
+    </tr>
+    <tr>
+      <td>Setback-defined area</td>
+      <td>56 &times; 91.24 = 5,109 sq ft</td>
+      <td>Zone within which a footprint may sit</td>
+    </tr>
+    <tr>
+      <td>Max footprint from lot coverage</td>
+      <td>8,426 &times; 30% = 2,528 sq ft</td>
+      <td>Absolute cap on building footprint</td>
+    </tr>
+    <tr>
+      <td>Minimum permeable area</td>
+      <td>8,426 &times; 25% = 2,107 sq ft</td>
+      <td>Site-wide pervious surface requirement</td>
+    </tr>
+    <tr>
+      <td>Compatibility check</td>
+      <td>2,528 + 2,107 = 4,635 sq ft (55% of lot)</td>
+      <td>45% remains for drive and paving &mdash; no conflict</td>
+    </tr>
+    <tr>
+      <td>Vertical envelope, base</td>
+      <td>35 ft / 3 stories</td>
+      <td>Governing maximum for R1 primary structure</td>
+    </tr>
+    <tr>
+      <td>Vertical envelope, with ADU</td>
+      <td>40 ft / &ldquo;3%&rdquo; stories [sic]</td>
+      <td>Conditional alternate for the primary structure</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Governing constraint</td>
+      <td>min(5,109 &middot; 2,528) = 2,528 sq ft</td>
+      <td>Lot coverage governs &mdash; cuts the setback envelope by 50.5%</td>
+    </tr>
+  </tfoot>
+</table>
+
+<h2>Setback-defined Buildable Envelope</h2>
+ <p>
+              <img src="favre-st-plan 1.png" alt="favre envelope" class="img-fluid rounded" />
+            </p>
+
+
+
+<h2>Longitudinal Sectional/h2>
+<p>
+              <img src="favre-st-section_1 1.png" alt="favre sectional" class="img-fluid rounded" />
+            </p>
+
+            <h3>Official zoning resources used</h3>
+            <p><b>Boston Zoning Viewer:</b> https://maps.bostonplans.org/zoningviewer/ — Start here to identify the parcel, district, subdistrict, overlays, and governing zoning article.</p>
+<p><b>Boston Zoning Code:</b> https://www.bostonplans.org/planning-zoning/zoning-code — Use the actual article/table for regulatory citations.</p>
+<p><b>Article 60 — Greater Mattapan Neighborhood District:</b> https://www.bostonplans.org/documents/planning/downtown-neighborhood-planning/plan-mattapan/residential-zoning/article-60-residential-text-amendment — For Mattapan residential parcels, Article 60 directs dimensional regulations to Table D.</p>
+<p><b>Article 2 — Definitions</b> https://library.municode.com/ma/boston/codes/redevelopment_authority?nodeId=ART2DE </p>
+
+            </p>
+            
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+      <p>
+        Blog template built for
+        <a href="https://getbootstrap.com/">Bootstrap</a> by
+        <a href="https://x.com/mdo">@mdo</a>.
+      </p>
+      <p class="mb-0"><a href="#">Back to top</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
 
